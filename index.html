@@ -3,217 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Baby Naming Ceremony Invitation</title>
-  <style>
-    /* Embedded CSS for convenience */
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f5f7fa;
-      color: #333;
-      margin: 0;
-      padding: 0;
-    }
-
-    .container {
-      max-width: 600px;
-      margin: 2rem auto;
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 1.5rem;
-    }
-
-    header h1 {
-      color: #4CAF50;
-      font-size: 2.8rem;
-      margin-bottom: 0.2rem;
-    }
-
-    header h2 {
-      font-weight: 400;
-      color: #555;
-      margin-top: 0;
-    }
-
-    .parents {
-      font-style: italic;
-      color: #666;
-      margin-top: -10px;
-      margin-bottom: 20px;
-    }
-
-    .invitation-details p {
-      font-size: 1.1rem;
-      line-height: 1.5;
-      margin: 0.5rem 0;
-    }
-
-    .attendance-form {
-      margin-top: 2rem;
-    }
-
-    .attendance-form h3 {
-      margin-bottom: 1rem;
-      color: #2E7D32;
-    }
-
-    form {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    input[type="text"], select {
-      flex: 1 1 200px;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-      transition: border-color 0.3s ease;
-    }
-
-    input[type="text"]:focus, select:focus {
-      outline: none;
-      border-color: #4CAF50;
-    }
-
-    button {
-      padding: 0.6rem 1.5rem;
-      background-color: #4CAF50;
-      border: none;
-      border-radius: 8px;
-      color: white;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      flex-shrink: 0;
-    }
-
-    button:hover {
-      background-color: #388E3C;
-    }
-
-    .attendance-list {
-      margin-top: 2rem;
-    }
-
-    .attendance-list h3 {
-      color: #D2691E;
-      font-weight: 700;
-      letter-spacing: 1.2px;
-    }
-
-    #guestList {
-      list-style: none;
-      padding-left: 0;
-      max-height: 200px;
-      overflow-y: auto;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-    }
-
-    #guestList li {
-      padding: 0.7rem 1rem;
-      border-bottom: 1px solid #eee;
-      font-size: 1rem;
-    }
-
-    #guestList li:last-child {
-      border-bottom: none;
-    }
-  </style>
+  <title>Join Us to Celebrate Our Baby’s Naming Ceremony!</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
     <header>
-      <h1>You're Invited!</h1>
-      <h2>Baby Naming Ceremony of Our Little One</h2>
-      <p class="parents">Parents: Mayur &amp; Aishwaryalakshmi</p>
+      <h1>Join Us to Celebrate Our Baby’s Naming Ceremony!</h1>
+      <p class="subtitle">A joyous celebration to cherish forever</p>
     </header>
 
     <section class="invitation-details">
-      <p>Join us to celebrate the joyous Baby Naming Ceremony.</p>
-      <p>
-        <strong>Date:</strong> 30th March 2025<br />
-        <strong>Time:</strong> 10:00 AM onwards<br />
-        <strong>Venue:</strong> Bailhongal
-      </p>
-      <p>We look forward to your presence to bless the little one!</p>
+      <p><strong>Date:</strong> 15th June 2025</p>
+      <p><strong>Time:</strong> 11:00 AM onwards</p>
+      <p><strong>Venue:</strong> Bailhongal</p>
+      <p class="message">Please join us to bless our little one and share in our happiness.</p>
     </section>
 
-    <section class="attendance-form">
-      <h3>RSVP - Please Confirm Your Attendance</h3>
-      <form id="rsvpForm">
-        <input type="text" id="nameInput" placeholder="Your Name" required />
+    <section class="rsvp-section">
+      <h2>Confirm Your Presence</h2>
+      <form id="rsvpForm" autocomplete="off">
+        <input type="text" id="nameInput" placeholder="Enter Your Name" required />
         <select id="attendanceInput" required>
           <option value="" disabled selected>Will you attend?</option>
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
+          <option value="Yes">Yes, I'll be there!</option>
+          <option value="No">Sorry, can't make it</option>
         </select>
         <button type="submit">Submit</button>
       </form>
     </section>
 
-    <section class="attendance-list">
-      <h3>🌟 Guests Confirmed (RSVP List) 🌟</h3>
+    <section class="guest-list-section">
+      <h2>🌟 Guests Confirmed 🌟</h2>
       <ul id="guestList"></ul>
     </section>
   </div>
 
-  <script>
-    const form = document.getElementById('rsvpForm');
-    const nameInput = document.getElementById('nameInput');
-    const attendanceInput = document.getElementById('attendanceInput');
-    const guestList = document.getElementById('guestList');
-
-    const guests = [];
-
-    // Load saved guests on page load
-    window.onload = () => {
-      const savedGuests = localStorage.getItem('guests');
-      if (savedGuests) {
-        guests.push(...JSON.parse(savedGuests));
-        renderGuestList();
-      }
-    };
-
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      const name = nameInput.value.trim();
-      const attendance = attendanceInput.value;
-
-      if (!name || !attendance) return;
-
-      guests.push({ name, attendance });
-
-      // Save to localStorage
-      localStorage.setItem('guests', JSON.stringify(guests));
-
-      renderGuestList();
-
-      form.reset();
-      attendanceInput.selectedIndex = 0;
-    });
-
-    function renderGuestList() {
-      guestList.innerHTML = '';
-      guests.forEach(guest => {
-        const li = document.createElement('li');
-        li.textContent = `${guest.name} — ${guest.attendance}`;
-        guestList.appendChild(li);
-      });
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
