@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Join Us to Celebrate Our Baby’s Naming Ceremony!</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Join Us to Celebrate Our Baby’s Naming Ceremony!</h1>
+      <p class="subtitle">A joyous celebration to cherish forever</p>
+    </header>
+
+    <section class="invitation-details">
+      <p><strong>Date:</strong> 15th June 2025</p>
+      <p><strong>Time:</strong> 11:00 AM onwards</p>
+      <p><strong>Venue:</strong> Bailhongal</p>
+      <p class="message">Please join us to bless our little one and share in our happiness.</p>
+    </section>
+
+    <section class="rsvp-section">
+      <h2>Confirm Your Presence</h2>
+      <form id="rsvpForm" autocomplete="off">
+        <input type="text" id="nameInput" placeholder="Enter Your Name" required />
+        <select id="attendanceInput" required>
+          <option value="" disabled selected>Will you attend?</option>
+          <option value="Yes">Yes, I'll be there!</option>
+          <option value="No">Sorry, can't make it</option>
+        </select>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <section class="guest-list-section">
+      <h2>🌟 Guests Confirmed 🌟</h2>
+      <ul id="guestList"></ul>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
