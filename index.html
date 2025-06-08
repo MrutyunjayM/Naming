@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Baby Naming Ceremony Invitation</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>You're Invited!</h1>
+      <h2>Baby Naming Ceremony</h2>
+    </header>
+
+    <section class="invitation-details">
+      <p>
+        Join us as we celebrate the joyous occasion of welcoming our little one.
+      </p>
+      <p>
+        <strong>Date:</strong> 30th March 2025<br />
+        <strong>Time:</strong> 10:00 AM onwards<br />
+        <strong>Venue:</strong> 2182/6, Ramnagar, K.H. Kangrali, APMC Road, Belagavi, Karnataka
+      </p>
+      <p>We look forward to celebrating this special day with you!</p>
+    </section>
+
+    <section class="attendance-form">
+      <h3>RSVP - Please Confirm Your Attendance</h3>
+      <form id="rsvpForm">
+        <input type="text" id="nameInput" placeholder="Your Name" required />
+        <select id="attendanceInput" required>
+          <option value="" disabled selected>Will you attend?</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+
+    <section class="attendance-list">
+      <h3>Guest List</h3>
+      <ul id="guestList"></ul>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
