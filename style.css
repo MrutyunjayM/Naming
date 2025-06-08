@@ -1,5 +1,4 @@
-/* style.css */
-
+/* Reset and base styles */
 * {
   box-sizing: border-box;
 }
@@ -36,6 +35,13 @@ header h2 {
   font-weight: 400;
   color: #555;
   margin-top: 0;
+}
+
+.parents {
+  font-style: italic;
+  color: #666;
+  margin-top: -10px;
+  margin-bottom: 20px;
 }
 
 .invitation-details p {
@@ -94,7 +100,9 @@ button:hover {
 }
 
 .attendance-list h3 {
-  color: #2E7D32;
+  color: #D2691E;
+  font-weight: 700;
+  letter-spacing: 1.2px;
 }
 
 #guestList {

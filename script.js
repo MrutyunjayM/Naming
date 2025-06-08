@@ -1,11 +1,18 @@
-// script.js
-
 const form = document.getElementById('rsvpForm');
 const nameInput = document.getElementById('nameInput');
 const attendanceInput = document.getElementById('attendanceInput');
 const guestList = document.getElementById('guestList');
 
 const guests = [];
+
+// Load saved guests on page load
+window.onload = () => {
+  const savedGuests = localStorage.getItem('guests');
+  if (savedGuests) {
+    guests.push(...JSON.parse(savedGuests));
+    renderGuestList();
+  }
+};
 
 form.addEventListener('submit', function (e) {
   e.preventDefault();
@@ -15,13 +22,13 @@ form.addEventListener('submit', function (e) {
 
   if (!name || !attendance) return;
 
-  // Add to guests array
   guests.push({ name, attendance });
 
-  // Update the guest list UI
+  // Save to localStorage
+  localStorage.setItem('guests', JSON.stringify(guests));
+
   renderGuestList();
 
-  // Reset form
   form.reset();
   attendanceInput.selectedIndex = 0;
 });
